@@ -1,0 +1,25 @@
+[package]
+name = "ironclad"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["Dmytro Lytovchenko <dmytro.lytovchenko@gmail.com>"]
+description = "Erlang Code Quality, Code Style and Type Inference Tool"
+homepage = "https://github.com/kvakvs/ironclad"
+repository = "https://github.com/kvakvs/ironclad"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Erlang syntax preprocessor and parser
+erl_parse = ">= 0.0.8"
+# Command line argument parser
+clap = ">= 4.4.11"
+glob = "0.3.1"
+toml = { version = ">= 0.8.8", features = ["parse"] }
+
+[dev-dependencies]
+erl_pp = "0.1"
+erl_tokenize = "0.3"
+num = ">= 0.4"
+trackable = ">= 1.3"
