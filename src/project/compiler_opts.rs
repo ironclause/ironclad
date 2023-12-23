@@ -1,31 +1,23 @@
-// use std::collections::HashMap;
-// use crate::error::IroncladResult;
-//
-// #[derive(Debug, Clone)]
-// pub enum OptionValue {
-//     None,
-//     Bool(bool),
-//     Int(i64),
-//     // Float(f64),
-//     String(String),
-//     List(Vec<OptionValue>),
-// }
-//
-// impl OptionValue {
-//     pub fn as_list(&self) -> Option<Vec<OptionValue>> {
-//         match self {
-//             OptionValue::String(s) => Some(vec![OptionValue::String(s.clone())]),
-//             OptionValue::List(list) => Some(list.clone()),
-//             _ => None,
-//         }
-//     }
-// }
-//
-// #[derive(Debug, Clone, Default)]
-// pub struct CompilerOpts {
-//     values: HashMap<String, OptionValue>,
-// }
-//
+use serde::Deserialize;
+
+/// Options for building entire project, or a single module
+/// This version of struct is parsed from TOML and all optional fields are Option<>
+/// The real config is in the module above this.
+#[derive(Default, Deserialize, Debug)]
+pub struct IroncladProjectFile {
+    pub compiler_options: CompilerOptions,
+}
+
+#[derive(Default, Deserialize, Debug)]
+pub struct CompilerOptions {
+    /// Directories to scan for input files. Default empty.
+    pub input_paths: Option<Vec<String>>,
+    /// File masks to scan for input files, do not add include files here only modules. Default *.erl.
+    pub input_masks: Option<Vec<String>>,
+    /// Defaults to empty list. Preprocessor defs in form of "NAME" or "NAME=VALUE"
+    pub defines: Option<toml::Table>,
+}
+
 // impl CompilerOpts {
 //     // pub(crate) fn load_toml_config(&self, config_contents: &str) -> IroncladResult<()> {
 //     //     Ok(())

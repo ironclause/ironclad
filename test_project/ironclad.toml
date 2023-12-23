@@ -1,9 +1,15 @@
 ﻿[compiler_options]
-include_paths = ["test_project/src", "test_project/include"]    # default []
+# Scan these directories for sources (uses input_masks to filter files)
+input_paths = ["src", "test_project/src", "test_project/include"]
 
-[inputs]
-#include_paths = ["test_project/src", "test_project/include"] # default []
-files = ["*.erl"]                         # default ["*.erl"]
-directories = ["test_project/src"]        # default ["."]
-exclude_files = []          # TODO: not implemented; default []
-exclude_directories = []    # TODO: not implemented; default []
+# Do not add the masks for include files, as they will be found by the preprocessor
+input_masks = ["*.erl"]
+
+# Global project preprocessor defines; Default: empty dictionary
+[compiler_options.defines]
+
+#[inputs]
+#directories = ["test_project"]        # default ["."]
+#
+#exclude_files = []          # TODO: not implemented; default []
+#exclude_directories = []    # TODO: not implemented; default []

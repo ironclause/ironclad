@@ -20,10 +20,9 @@ fn main() {
 
 fn main_do() -> IroncladResult<()> {
     let mut project = ErlProjectImpl::new();
-    project.load_toml_config("ironclad.toml")?;
+    project.load_project_config("ironclad.toml")?;
+    project.input_paths = project.build_file_list()?;
     println!("{}", project);
-
-    project.build_file_list()?;
 
     // Parse all ERL files and their included includes
     // if let Err(e) = ErlParseStage::run_parse_stage(&project) {

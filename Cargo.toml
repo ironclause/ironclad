@@ -17,6 +17,7 @@ erl_parse = ">= 0.0.8"
 clap = ">= 4.4.11"
 glob = "0.3.1"
 toml = { version = ">= 0.8.8", features = ["parse"] }
+serde = { version = "1.0.193", features = ["derive"] }
 
 [dev-dependencies]
 erl_pp = "0.1"

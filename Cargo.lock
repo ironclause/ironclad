@@ -160,6 +160,7 @@ dependencies = [
  "erl_tokenize",
  "glob",
  "num 0.4.1",
+ "serde",
  "toml",
  "trackable 1.3.0",
 ]
