@@ -14,6 +14,10 @@ pub struct CompilerOptions {
     pub input_paths: Option<Vec<String>>,
     /// File masks to scan for input files, do not add include files here only modules. Default *.erl.
     pub input_masks: Option<Vec<String>>,
+    /// Files (and paths) to skip when scanning for inputs. Skips the file if starts with any value from this skip-list.
+    pub exclude_prefixes: Option<Vec<String>>,
+    /// Files (and paths) to skip when scanning for inputs. Skips the file if it ends with any value from this skip-list.
+    pub exclude_suffixes: Option<Vec<String>>,
     /// Defaults to empty list. Preprocessor defs in form of "NAME" or "NAME=VALUE"
     pub defines: Option<toml::Table>,
 }

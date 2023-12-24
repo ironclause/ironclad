@@ -5,6 +5,9 @@ input_paths = ["src", "test_project/src", "test_project/include"]
 # Do not add the masks for include files, as they will be found by the preprocessor
 input_masks = ["*.erl"]
 
+exclude_prefixes = []
+exclude_suffixes = ["beam_asm.erl"]
+
 # Global project preprocessor defines; Default: empty dictionary
 [compiler_options.defines]
 
