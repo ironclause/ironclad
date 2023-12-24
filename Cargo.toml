@@ -12,9 +12,12 @@ repository = "https://github.com/kvakvs/ironclad"
 
 [dependencies]
 # Erlang syntax preprocessor and parser
-erl_parse = ">= 0.0.8"
-erl_pp = "0.1"
-erl_tokenize = "0.3"
+#erl_parse = { git = "https://github.com/ironclause/erl_parse.git" }
+erl_parse = { path = "deps/erl_parse" }
+#erl_pp = { git = "https://github.com/ironclause/erl_pp.git" }
+erl_pp = { path = "deps/erl_pp" }
+#erl_tokenize = { git = "https://github.com/ironclause/erl_tokenize.git" }
+erl_tokenize = { path = "deps/erl_tokenize" }
 
 # Command line argument parser
 clap = ">= 4.4.11"
